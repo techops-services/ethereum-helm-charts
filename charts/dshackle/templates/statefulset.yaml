@@ -67,7 +67,7 @@ spec:
               readOnly: true
           ports:
             - name: http
-              containerPort: {{ .Values.httpPort }}
+              containerPort: {{ .Values.internalHttpPort }}
               protocol: TCP
             - name: grpc
               containerPort: {{ .Values.gRPCPort }}

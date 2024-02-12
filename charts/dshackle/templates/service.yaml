@@ -4,11 +4,13 @@ metadata:
   name: {{ include "dshackle.fullname" . }}
   labels:
     {{- include "dshackle.labels" . | nindent 4 }}
+  annotations:
+    {{ toYaml .Values.service.annotations | nindent 4 }}
 spec:
   type: {{ .Values.service.type }}
   ports:
-    - port: {{ .Values.httpPort }}
-      targetPort: http
+    - port: {{ .Values.externalHttpPort }}
+      targetPort: {{ .Values.internalHttpPort }}
       protocol: TCP
       name: http
     - port: {{ .Values.gRPCPort }}
