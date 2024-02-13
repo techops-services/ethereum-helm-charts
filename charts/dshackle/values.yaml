@@ -109,9 +109,13 @@ annotations: {}
 # @default -- See `values.yaml`
 gRPCPort: 2449
 
-# -- HTTP Port
+# -- External HTTP Port, where the service is exposed
 # @default -- See `values.yaml`
-httpPort: 8545
+externalHttpPort: 443
+
+# -- Internal HTTP Port, where pod and application running in the container are listening
+# @default -- See `values.yaml`
+internalHttpPort: 8545
 
 # -- Metrics Port
 # @default -- See `values.yaml`
