@@ -1018,6 +1018,28 @@ entries:
     version: 0.0.1
   dshackle:
   - apiVersion: v2
+    created: "2024-03-21T05:53:51.749047482Z"
+    dependencies:
+    - condition: redis.enabled
+      name: redis
+      repository: https://charts.bitnami.com/bitnami
+      version: 16.x.x
+    description: 'Emerald Dshackle is a Fault Tolerant Load Balancer for Blockchain
+      API. Support for standard Bitcoin and Ethereum JSON RPC API over HTTP and WebSocket. '
+    digest: aaf29ff24cb1372cbf492de38643692c81dd87a6e9bd086d090423168fe568d1
+    home: https://github.com/emeraldpay/dshackle
+    icon: https://avatars.githubusercontent.com/u/49622339?s=200&v=4
+    maintainers:
+    - email: rafael@skyle.net
+      name: skylenet
+    name: dshackle
+    sources:
+    - https://github.com/emeraldpay/dshackle
+    type: application
+    urls:
+    - https://github.com/techops-services/ethereum-helm-charts/releases/download/dshackle-0.1.9/dshackle-0.1.9.tgz
+    version: 0.1.9
+  - apiVersion: v2
     created: "2024-02-14T21:57:17.992746845Z"
     dependencies:
     - condition: redis.enabled
@@ -8401,4 +8423,4 @@ entries:
     urls:
     - https://github.com/techops-services/ethereum-helm-charts/releases/download/xatu-server-0.0.1/xatu-server-0.0.1.tgz
     version: 0.0.1
-generated: "2024-03-21T05:14:22.573068826Z"
+generated: "2024-03-21T05:53:55.780849938Z"
