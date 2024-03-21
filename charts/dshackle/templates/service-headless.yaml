@@ -7,8 +7,8 @@ metadata:
 spec:
   clusterIP: None
   ports:
-    - port: {{ .Values.httpPort }}
-      targetPort: http
+    - port: {{ .Values.externalHttpPort }}
+      targetPort: {{ .Values.internalHttpPort }}
       protocol: TCP
       name: http
     - port: {{ .Values.gRPCPort }}

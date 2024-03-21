@@ -1,4 +1,4 @@
-config: |
+config:
   version: v1
   port: 2449
   tls:
