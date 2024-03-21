@@ -19,6 +19,24 @@ entries:
     urls:
     - https://github.com/techops-services/ethereum-helm-charts/releases/download/armiarma-0.1.0/armiarma-0.1.0.tgz
     version: 0.1.0
+  assertoor:
+  - apiVersion: v2
+    appVersion: 1.0.0
+    created: "2024-03-21T05:14:22.401028253Z"
+    description: 'Testing tool that is capable of doing actions and checking conditions
+      on ethereum pos networks. '
+    digest: 505ceae7980f0a47e16d198e3d42028c0f7de60b33f2fd440d7761bda2a43bbe
+    home: https://github.com/ethpandaops/assertoor
+    maintainers:
+    - email: philipp@pk910.de
+      name: pk910
+    name: assertoor
+    sources:
+    - https://github.com/ethpandaops/assertoor
+    type: application
+    urls:
+    - https://github.com/techops-services/ethereum-helm-charts/releases/download/assertoor-0.0.1/assertoor-0.0.1.tgz
+    version: 0.0.1
   beacon-metrics-gazer:
   - apiVersion: v2
     created: "2023-06-27T13:51:37.177708618Z"
@@ -817,6 +835,25 @@ entries:
     urls:
     - https://github.com/techops-services/ethereum-helm-charts/releases/download/blockscout-0.1.0/blockscout-0.1.0.tgz
     version: 0.1.0
+  blutgang:
+  - apiVersion: v2
+    created: "2024-03-21T05:14:22.572482259Z"
+    description: 'Blutgang is a blazing fast, caching, minimalistic load balancer
+      designed with Ethereum''s JSON-RPC in mind. Historical RPC queries are cached
+      in a local database, bypassing the need for slow, repeating calls to your node. '
+    digest: ee7591b1decd4e17c158fe70e760aef92adb04ff738dfc2bc73a7fb5641c6c9d
+    home: https://github.com/rainshowerLabs/blutgang
+    icon: https://github.com/rainshowerLabs/blutgang/assets/55022497/ec668c7a-5f56-4b26-8386-f112c2f176ce
+    maintainers:
+    - email: busa.barnabas@gmail.com
+      name: barnabasbusa
+    name: blutgang
+    sources:
+    - https://github.com/rainshowerLabs/blutgang
+    type: application
+    urls:
+    - https://github.com/techops-services/ethereum-helm-charts/releases/download/blutgang-0.0.4/blutgang-0.0.4.tgz
+    version: 0.0.4
   checkpointz:
   - apiVersion: v2
     created: "2023-05-10T18:22:04.709879479Z"
@@ -8364,4 +8401,4 @@ entries:
     urls:
     - https://github.com/techops-services/ethereum-helm-charts/releases/download/xatu-server-0.0.1/xatu-server-0.0.1.tgz
     version: 0.0.1
-generated: "2024-02-14T21:57:25.500136868Z"
+generated: "2024-03-21T05:14:22.573068826Z"
