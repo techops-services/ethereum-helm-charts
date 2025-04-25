@@ -285,6 +285,7 @@ redis:
       enabled: false
       size: 8Gi
 
+# -- Autoscaling configs for dshackle
 autoscaling:
   {}
   # enabled: false
