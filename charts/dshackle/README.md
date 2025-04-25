@@ -1,7 +1,7 @@
 
 # dshackle
 
-![Version: 0.1.7](https://img.shields.io/badge/Version-0.1.7-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.11](https://img.shields.io/badge/Version-0.1.11-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Emerald Dshackle is a Fault Tolerant Load Balancer for Blockchain API. Support for standard Bitcoin and Ethereum JSON RPC API over HTTP and WebSocket.
 
@@ -10,12 +10,13 @@ Emerald Dshackle is a Fault Tolerant Load Balancer for Blockchain API. Support f
 ## Source Code
 
 * <https://github.com/emeraldpay/dshackle>
+* <https://github.com/drpcorg/dshackle>
 
 ## Requirements
 
 | Repository | Name | Version |
 |------------|------|---------|
-| https://charts.bitnami.com/bitnami | redis | 16.x.x |
+| https://charts.bitnami.com/bitnami | redis | 20.x.x |
 
 ## Values
 
@@ -23,10 +24,12 @@ Emerald Dshackle is a Fault Tolerant Load Balancer for Blockchain API. Support f
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity configuration for pods |
 | annotations | object | `{}` | Annotations for the StatefulSet |
-| config | string | See `values.yaml` | Config file |
+| autoscaling | object | `{}` | Autoscaling configs for dshackle |
+| config | object | See `values.yaml` | Config file |
 | containerSecurityContext | object | See `values.yaml` | The security context for containers |
 | customArgs | list | `[]` | Custom args for the dshackle container |
 | customCommand | list | `[]` | Command replacement for the dshackle container |
+| externalHttpPort | int | See `values.yaml` | External HTTP Port, where the service is exposed |
 | extraContainers | list | `[]` | Additional containers |
 | extraEnv | list | `[]` | Additional env variables |
 | extraPorts | list | `[]` | Additional ports. Useful when using extraContainers |
@@ -35,17 +38,16 @@ Emerald Dshackle is a Fault Tolerant Load Balancer for Blockchain API. Support f
 | fullnameOverride | string | `""` | Overrides the chart's computed fullname |
 | gRPCPort | int | See `values.yaml` | gRPC Port |
 | healthPort | int | See `values.yaml` | Health Port |
-| httpPort | int | See `values.yaml` | HTTP Port |
 | image.pullPolicy | string | `"IfNotPresent"` | dshackle container pull policy |
 | image.repository | string | `"emeraldpay/dshackle"` | dshackle container image repository |
-| image.tag | string | `"0.14.0"` | dshackle container image tag |
+| image.tag | string | `"0.15.0"` | dshackle container image tag |
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.tls | list | `[]` | Ingress TLS |
 | initContainers | list | `[]` | Additional init containers |
+| internalHttpPort | int | See `values.yaml` | Internal HTTP Port, where pod and application running in the container are listening |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
 | metricsPort | int | See `values.yaml` | Metrics Port |
 | nameOverride | string | `""` | Overrides the chart's name |
@@ -61,7 +63,7 @@ Emerald Dshackle is a Fault Tolerant Load Balancer for Blockchain API. Support f
 | redis.image.pullPolicy | string | `"IfNotPresent"` |  |
 | redis.image.registry | string | `"docker.io"` |  |
 | redis.image.repository | string | `"bitnami/redis"` |  |
-| redis.image.tag | string | `"6.2.6-debian-10-r21"` |  |
+| redis.image.tag | string | `"7.4.3-debian-12-r0"` |  |
 | redis.master.persistence.enabled | bool | `true` |  |
 | redis.master.persistence.size | string | `"8Gi"` |  |
 | redis.replica.persistence.enabled | bool | `false` |  |
@@ -86,8 +88,8 @@ Emerald Dshackle is a Fault Tolerant Load Balancer for Blockchain API. Support f
 | serviceMonitor.scrapeTimeout | string | `"30s"` | ServiceMonitor scrape timeout |
 | serviceMonitor.tlsConfig | object | `{}` | ServiceMonitor TLS configuration |
 | terminationGracePeriodSeconds | int | `30` | How long to wait until the pod is forcefully terminated |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |
 | updateStrategy | object | `{"type":"RollingUpdate"}` | Update stategy for the Statefulset |
 | updateStrategy.type | string | `"RollingUpdate"` | Update stategy type |
 
