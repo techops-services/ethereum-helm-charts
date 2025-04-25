@@ -271,7 +271,7 @@ redis:
   image:
     registry: docker.io
     repository: bitnami/redis
-    tag: 6.2.6-debian-10-r21
+    tag: 7.4.3-debian-12-r0
     pullPolicy: IfNotPresent
   auth:
     password: yourRedisSecret
@@ -284,3 +284,22 @@ redis:
     persistence:
       enabled: false
       size: 8Gi
+
+# -- Autoscaling configs for dshackle
+autoscaling:
+  {}
+  # enabled: false
+  # minReplicas: 2
+  # maxReplicas: 6
+  # targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80
+  # scaleUp:
+  #   stabilizationWindowSeconds: 30
+  #   policyType: pod
+  #   value: 6
+  #   periodSeconds: 30
+  # scaleDown:
+  #   stabilizationWindowSeconds: 300
+  #   policyType: pod
+  #   value: 2
+  #   periodSeconds: 30
