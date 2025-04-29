@@ -9,7 +9,7 @@ sources:
   - https://github.com/emeraldpay/dshackle
   - https://github.com/drpcorg/dshackle
 type: application
-version: 0.1.11
+version: 0.1.12
 maintainers:
   - name: skylenet
     email: rafael@skyle.net
