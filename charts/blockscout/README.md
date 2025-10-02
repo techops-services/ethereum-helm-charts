@@ -1,7 +1,7 @@
 
 # blockscout
 
-![Version: 0.2.1](https://img.shields.io/badge/Version-0.2.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.2.2](https://img.shields.io/badge/Version-0.2.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 BlockScout provides a comprehensive, easy-to-use interface for users to view, confirm, and inspect transactions on EVM (Ethereum Virtual Machine) blockchains
 
@@ -41,8 +41,7 @@ BlockScout provides a comprehensive, easy-to-use interface for users to view, co
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.tls | list | `[]` | Ingress TLS |
 | initContainers | list | `[]` | Additional init containers |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
@@ -88,8 +87,8 @@ BlockScout provides a comprehensive, easy-to-use interface for users to view, co
 | serviceMonitor.tlsConfig | object | `{}` | ServiceMonitor TLS configuration |
 | smart-contract-verifier-http.enabled | bool | `false` |  |
 | terminationGracePeriodSeconds | int | `60` | How long to wait until the pod is forcefully terminated |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |
 | updateStrategy | object | `{"type":"RollingUpdate"}` | Update stategy for the Statefulset |
 | updateStrategy.type | string | `"RollingUpdate"` | Update stategy type |
 

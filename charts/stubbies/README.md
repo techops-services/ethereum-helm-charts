@@ -1,7 +1,7 @@
 
 # stubbies
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ethereum execution client stub for consensus layer clients.
 
@@ -33,8 +33,7 @@ Ethereum execution client stub for consensus layer clients.
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.tls | list | `[]` | Ingress TLS |
 | initContainers | list | `[]` | Additional init containers |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
@@ -64,5 +63,5 @@ Ethereum execution client stub for consensus layer clients.
 | serviceMonitor.scrapeTimeout | string | `"30s"` | ServiceMonitor scrape timeout |
 | serviceMonitor.tlsConfig | object | `{}` | ServiceMonitor TLS configuration |
 | terminationGracePeriodSeconds | int | `30` | How long to wait until the pod is forcefully terminated |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |

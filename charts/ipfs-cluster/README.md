@@ -1,6 +1,6 @@
 # ipfs-cluster
 
-![Version: 0.1.12](https://img.shields.io/badge/Version-0.1.12-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.13](https://img.shields.io/badge/Version-0.1.13-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Run ipfs cluster along with kubo (go-ipfs)
 
@@ -9,7 +9,7 @@ Run ipfs cluster along with kubo (go-ipfs)
 | Key | Type | Default | Description |
 |-----|------|---------|-------------|
 | cluster.affinity | object | `{}` |  |
-| cluster.extraEnv | list | `[]` |  |
+| cluster.extraEnv | list | `[]` | Additional env variables |
 | cluster.image.pullPolicy | string | `"IfNotPresent"` |  |
 | cluster.image.repository | string | `"ipfs/ipfs-cluster"` |  |
 | cluster.image.tag | string | `"latest"` |  |

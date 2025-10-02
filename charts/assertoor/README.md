@@ -1,7 +1,7 @@
 
 # assertoor
 
-![Version: 0.0.1](https://img.shields.io/badge/Version-0.0.1-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Testing tool that is capable of doing actions and checking conditions on ethereum pos networks.
 
@@ -56,27 +56,26 @@ assertoorTests:
 | annotations | object | `{}` | Annotations for the StatefulSet |
 | assertoorApiEnabled | bool | `true` | Enable assertoor API |
 | assertoorFrontendEnabled | bool | `true` | Enable assertoor UI |
-| assertoorTests | list | `[]` | assertoor test configurations -- file is the only required field. All other fields default to the values provided in the test file, but can be overriden if needed. |
+| assertoorTests | list | `[]` | file is the only required field. All other fields default to the values provided in the test file, but can be overriden if needed. |
 | config | string | See `values.yaml` | Config file |
 | containerSecurityContext | object | See `values.yaml` | The security context for containers |
 | customArgs | list | `["--config=/data/assertoor-config.yaml"]` | Custom args for the assertoor container |
 | customCommand | list | `[]` | Command replacement for the assertoor container |
-| endpoints | list | `[{"consensusHeaders":{"X-Test":"test","Y-Test":"test2"},"consensusUrl":"http://beacon-node:5052","executionHeaders":{"X-Test":"test","Y-Test":"test2"},"executionUrl":"http://execution-node:8545","name":"default-endpoint"}]` | An array of endpoints to use for assertoor -- executionUrl & consensusUrl are the only required fields |
+| endpoints | list | `[{"consensusHeaders":{"X-Test":"test","Y-Test":"test2"},"consensusUrl":"http://beacon-node:5052","executionHeaders":{"X-Test":"test","Y-Test":"test2"},"executionUrl":"http://execution-node:8545","name":"default-endpoint"}]` | executionUrl & consensusUrl are the only required fields |
 | extraContainers | list | `[]` | Additional containers |
 | extraEnv | list | `[]` | Additional env variables |
 | extraPorts | list | `[]` | Additional ports. Useful when using extraContainers |
 | extraVolumeMounts | list | `[]` | Additional volume mounts |
 | extraVolumes | list | `[]` | Additional volumes |
 | fullnameOverride | string | `""` | Overrides the chart's computed fullname |
-| globalVariables | object | `{"walletPrivkey":"feedbeef12340000feedbeef12340000feedbeef12340000feedbeef12340000"}` | global assertoor variables -- global variables are passed to all tests. |
+| globalVariables | object | `{"walletPrivkey":"feedbeef12340000feedbeef12340000feedbeef12340000feedbeef12340000"}` | global variables are passed to all tests. |
 | httpPort | int | `8080` | HTTP port for assertoor interface |
 | image.pullPolicy | string | `"IfNotPresent"` | assertoor container pull policy |
 | image.repository | string | `"ethpandaops/assertoor"` | assertoor container image repository |
 | image.tag | string | `"latest"` | assertoor container image tag |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.tls | list | `[]` | Ingress TLS |
 | initContainers | list | `[]` | Additional init containers |
 | nameOverride | string | `""` | Overrides the chart's name |
@@ -92,7 +91,7 @@ assertoorTests:
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | terminationGracePeriodSeconds | int | `30` | How long to wait until the pod is forcefully terminated |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
-| validatorNamesInventory | string | `""` | This can be a url here for example: -- "https://config.dencun-devnet-8.ethpandaops.io/api/v1/nodes/validator-ranges" -- If you want to use a local range file define it in the values.yaml validatorNamesRanges section |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |
+| validatorNamesInventory | string | `""` | If you want to use a local range file define it in the values.yaml validatorNamesRanges section |
 | validatorNamesRanges | string | `"0-1: test\n"` |  |

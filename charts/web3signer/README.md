@@ -1,7 +1,7 @@
 
 # web3signer
 
-![Version: 1.0.5](https://img.shields.io/badge/Version-1.0.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 1.0.6](https://img.shields.io/badge/Version-1.0.6-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Web3Signer is capable of signing on multiple platforms using private keys stored in an external vault, or encrypted on a disk.
 
@@ -36,8 +36,7 @@ Web3Signer is capable of signing on multiple platforms using private keys stored
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.tls | list | `[]` | Ingress TLS |
 | initChownData.enabled | bool | `true` | Init container to set the correct permissions to access data directories |
 | initChownData.image.pullPolicy | string | `"IfNotPresent"` | Container pull policy |
@@ -105,8 +104,8 @@ Web3Signer is capable of signing on multiple platforms using private keys stored
 | slashingprotectiondb.primary.persistence.enabled | bool | `true` | Uses an EmptyDir when not enabled |
 | slashingprotectiondb.primary.persistence.size | string | `"1Gi"` |  |
 | terminationGracePeriodSeconds | int | `300` | How long to wait until the pod is forcefully terminated |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |
 | updateStrategy | object | `{"type":"RollingUpdate"}` | Update stategy for the Statefulset |
 | updateStrategy.type | string | `"RollingUpdate"` | Update stategy type |
 

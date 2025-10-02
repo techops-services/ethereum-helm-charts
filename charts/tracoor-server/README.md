@@ -1,7 +1,7 @@
 
 # tracoor-server
 
-![Version: 0.0.2](https://img.shields.io/badge/Version-0.0.2-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Ethereum debug data capture and indexer
 
@@ -51,13 +51,11 @@ Ethereum debug data capture and indexer
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.grpc.annotations | object | `{}` | Annotations for Ingress |
 | ingress.grpc.enabled | bool | `false` | Ingress resource for GRPC |
-| ingress.grpc.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.grpc.hosts[0].paths | list | `[]` |  |
+| ingress.grpc.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.grpc.tls | list | `[]` | Ingress TLS |
 | ingress.http.annotations | object | `{}` | Annotations for Ingress |
 | ingress.http.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.http.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.http.hosts[0].paths | list | `[]` |  |
+| ingress.http.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.http.tls | list | `[]` | Ingress TLS |
 | initContainers | list | `[]` | Additional init containers |
 | lifecycle | object | See `values.yaml` | Lifecycle hooks |
@@ -88,5 +86,5 @@ Ethereum debug data capture and indexer
 | serviceMonitor.scrapeTimeout | string | `"30s"` | ServiceMonitor scrape timeout |
 | serviceMonitor.tlsConfig | object | `{}` | ServiceMonitor TLS configuration |
 | terminationGracePeriodSeconds | int | `90` | How long to wait until the pod is forcefully terminated |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |

@@ -1,7 +1,7 @@
 
 # dugtrio
 
-![Version: 0.0.3](https://img.shields.io/badge/Version-0.0.3-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.0.4](https://img.shields.io/badge/Version-0.0.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 Fault tolerant load balancer for beacon chain RPC apis
 
@@ -54,7 +54,7 @@ endpoints:
 | dugtrioProxyCount | int | `1` | number of HTTP proxies in front of dugtrio |
 | dugtrioProxySessionTimeout | string | `"10m"` | timeout for dugtrio sessions (used for rate limiting & endpoint stickiness) |
 | dugtrioProxyStickyEndpoint | bool | `true` | reuse the same endpoint for sessions as long as available |
-| endpoints | list | `[{"headers":{"X-Test":"test","Y-Test":"test2"},"name":"default-endpoint","url":"http://beacon-node:5052"}]` | An array of endpoints to use for dugtrio -- url is the only required field |
+| endpoints | list | `[{"headers":{"X-Test":"test","Y-Test":"test2"},"name":"default-endpoint","url":"http://beacon-node:5052"}]` | url is the only required field |
 | extraContainers | list | `[]` | Additional containers |
 | extraEnv | list | `[]` | Additional env variables |
 | extraPorts | list | `[]` | Additional ports. Useful when using extraContainers |
@@ -67,8 +67,7 @@ endpoints:
 | image.tag | string | `"1.0.0"` | dugtrio container image tag |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.tls | list | `[]` | Ingress TLS |
 | initContainers | list | `[]` | Additional init containers |
 | nameOverride | string | `""` | Overrides the chart's name |
@@ -85,7 +84,7 @@ endpoints:
 | serviceAccount.create | bool | `true` | Specifies whether a service account should be created |
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | terminationGracePeriodSeconds | int | `30` | How long to wait until the pod is forcefully terminated |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |
 | updateStrategy | object | `{"type":"RollingUpdate"}` | Update stategy for the Statefulset |
 | updateStrategy.type | string | `"RollingUpdate"` | Update stategy type |
