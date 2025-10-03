@@ -13,6 +13,7 @@ This is a little tool to keep track on a set of nodes, and see if they keep in s
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity configuration for pods |
 | annotations | object | `{}` | Annotations for the StatefulSet |
+| chainId | string | `"1"` | Chain ID for Etherscan API (1 for mainnet, 11155111 for sepolia, etc.) |
 | config | string | See `values.yaml` | Config file |
 | containerSecurityContext | object | See `values.yaml` | The security context for containers |
 | customCommand | list | `[]` | Command replacement for the forkmon container |
@@ -86,7 +87,7 @@ config.toml:
     alchemy_key         = "<ALCHEMY_API_KEY>"
     alchemy_endpoint    = "https://eth-mainnet.g.alchemy.com/v2/"
     etherscan_key       = "<ETHERSCAN_API_KEY>"
-    etherscan_endpoint  = "https://api.etherscan.io/v2/api?chainid=1"
+    etherscan_endpoint  = "https://api.etherscan.io/v2/api?chainid=1"  # Use chainId value to configure for different networks
 
     [Metrics]
 
