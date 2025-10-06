@@ -4157,6 +4157,22 @@ entries:
     version: 0.1.0
   forkmon:
   - apiVersion: v2
+    created: "2025-10-06T07:07:37.696319251Z"
+    description: This is a little tool to keep track on a set of nodes, and see if
+      they keep in step or if they go out of consensus.
+    digest: 61e83ae898775e573e21e68309c259f07f1f592e2e2300070242d380a14ff575
+    home: https://github.com/ethereum/nodemonitor
+    maintainers:
+    - email: rafael@skyle.net
+      name: skylenet
+    - email: busa.barnabas@gmail.com
+      name: barnabasbusa
+    name: forkmon
+    type: application
+    urls:
+    - https://github.com/techops-services/ethereum-helm-charts/releases/download/forkmon-0.1.5/forkmon-0.1.5.tgz
+    version: 0.1.5
+  - apiVersion: v2
     created: "2023-05-10T18:22:06.608393679Z"
     description: This is a little tool to keep track on a set of nodes, and see if
       they keep in step or if they go out of consensus.
@@ -8495,4 +8511,4 @@ entries:
     urls:
     - https://github.com/techops-services/ethereum-helm-charts/releases/download/xatu-server-0.0.1/xatu-server-0.0.1.tgz
     version: 0.0.1
-generated: "2025-04-29T22:15:25.92800276Z"
+generated: "2025-10-06T07:07:37.696886874Z"
