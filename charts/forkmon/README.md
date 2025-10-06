@@ -1,7 +1,7 @@
 
 # forkmon
 
-![Version: 0.1.4](https://img.shields.io/badge/Version-0.1.4-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
+![Version: 0.1.5](https://img.shields.io/badge/Version-0.1.5-informational?style=flat-square) ![Type: application](https://img.shields.io/badge/Type-application-informational?style=flat-square)
 
 This is a little tool to keep track on a set of nodes, and see if they keep in step or if they go out of consensus.
 
@@ -13,6 +13,7 @@ This is a little tool to keep track on a set of nodes, and see if they keep in s
 |-----|------|---------|-------------|
 | affinity | object | `{}` | Affinity configuration for pods |
 | annotations | object | `{}` | Annotations for the StatefulSet |
+| chainId | string | `"1"` | Chain ID for Etherscan API (1 for mainnet, 11155111 for sepolia, etc.) |
 | config | string | See `values.yaml` | Config file |
 | containerSecurityContext | object | See `values.yaml` | The security context for containers |
 | customCommand | list | `[]` | Command replacement for the forkmon container |
@@ -31,8 +32,7 @@ This is a little tool to keep track on a set of nodes, and see if they keep in s
 | imagePullSecrets | list | `[]` | Image pull secrets for Docker images |
 | ingress.annotations | object | `{}` | Annotations for Ingress |
 | ingress.enabled | bool | `false` | Ingress resource for the HTTP API |
-| ingress.hosts[0].host | string | `"chart-example.local"` |  |
-| ingress.hosts[0].paths | list | `[]` |  |
+| ingress.hosts | list | `[{"host":"chart-example.local","paths":[]}]` | Ingress host |
 | ingress.tls | list | `[]` | Ingress TLS |
 | initContainers | list | `[]` | Additional init containers |
 | livenessProbe | object | See `values.yaml` | Liveness probe |
@@ -62,8 +62,8 @@ This is a little tool to keep track on a set of nodes, and see if they keep in s
 | serviceAccount.name | string | `""` | The name of the service account to use. If not set and create is true, a name is generated using the fullname template |
 | terminationGracePeriodSeconds | int | `30` | How long to wait until the pod is forcefully terminated |
 | thirdparty_endpoints | list | `[{"kind":"infura","name":"mainnet-infura","rate_limit":5},{"kind":"alchemy","name":"mainnet-alchemy","rate_limit":5},{"kind":"etherscan","name":"mainnet-etherscan","rate_limit":5}]` | Third party endpoints that you would like to monitor |
-| tolerations | list | `[]` | Tolerations for pods |
-| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods |
+| tolerations | list | `[]` | Tolerations for pods # ref: https://kubernetes.io/docs/concepts/configuration/taint-and-toleration/ |
+| topologySpreadConstraints | list | `[]` | Topology Spread Constraints for pods # ref: https://kubernetes.io/docs/concepts/scheduling-eviction/topology-spread-constraints/ |
 | updateStrategy | object | `{"type":"RollingUpdate"}` | Update stategy for the Statefulset |
 | updateStrategy.type | string | `"RollingUpdate"` | Update stategy type |
 
@@ -87,7 +87,7 @@ config.toml:
     alchemy_key         = "<ALCHEMY_API_KEY>"
     alchemy_endpoint    = "https://eth-mainnet.g.alchemy.com/v2/"
     etherscan_key       = "<ETHERSCAN_API_KEY>"
-    etherscan_endpoint  = "https://api.etherscan.io/api"
+    etherscan_endpoint  = "https://api.etherscan.io/v2/api?chainid=1"  # Use chainId value to configure for different networks
 
     [Metrics]
 

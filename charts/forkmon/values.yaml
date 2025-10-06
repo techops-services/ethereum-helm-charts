@@ -24,6 +24,9 @@ customCommand: [] # Only change this if you need to change the default command
 # -- Set a network name such as mainnet, goerli, sepolia
 network: ""
 
+# -- Chain ID for Etherscan API (1 for mainnet, 11155111 for sepolia, etc.)
+chainId: "1"
+
 # -- Config file
 # @default -- See `values.yaml`
 config: |
@@ -41,7 +44,7 @@ config: |
     alchemy_key         = "<ALCHEMY_API_KEY>"
     alchemy_endpoint    = "https://eth-mainnet.g.alchemy.com/v2/"
     etherscan_key       = "<ETHERSCAN_API_KEY>"
-    etherscan_endpoint  = "https://api.etherscan.io/api"
+    etherscan_endpoint  = "https://api.etherscan.io/v2/api?chainid={{ .Values.chainId }}"
 
     [Metrics]
 
